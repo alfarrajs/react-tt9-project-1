@@ -93,9 +93,9 @@ const FromContainer = () => {
         email: controls.email.value,
         password: controls.password.value,
       };
-  
+      const publicUrl = process.env.REACT_APP_API_URL;
       try {
-        await axios.post("https://react-tt-api.onrender.com/api/users/signup/", signupData);
+        await axios.post(`${publicUrl}/users/signup/`, signupData);
         Swal.fire(
           'Registered Successfully!',
           'You clicked the button!',

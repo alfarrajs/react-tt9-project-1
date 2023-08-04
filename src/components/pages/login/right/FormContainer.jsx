@@ -5,46 +5,41 @@ const FormContainer = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const users = [
-    {
-      id: "1",
-      email: "test@example.com",
-      password: "testpassword",
-    },
-  ];
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { msg, isValid } = validateLogin();
-    Swal.fire({
-      position: "center",
-      icon: isValid ? "success" : "error",
-      title: msg,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    setPassword('')
-    setEmail('')
+    let items = {email,password};
+    let result = fetch("https://react-tt-api.onrender.com/api/")
+    // const { msg, isValid } = validateLogin();
+    // Swal.fire({
+    //   position: "center",
+    //   icon: isValid ? "success" : "error",
+    //   title: msg,
+    //   showConfirmButton: false,
+    //   timer: 1500,
+    // });
+    
   };
   const validateLogin = () => {
-    const user = users.find((user) => user.email === email);
-    if (user) {
-      if (user.password == password) {
-        return {
-          msg: "login successful",
-          isValid: true,
-        };
-      } else {
-        return {
-          msg: "password is not correct",
-          isValid: false,
-        };
-      }
-    } else {
-      return {
-        msg: "email is not matched",
-        isValid: false,
-      };
-    }
+    // const user = users.find((user) => user.email === email);
+    // if (user) {
+    //   if (user.password == password) {
+    //     return {
+    //       msg: "login successful",
+    //       isValid: true,
+    //     };
+    //   } else {
+    //     return {
+    //       msg: "password is not correct",
+    //       isValid: false,
+    //     };
+    //   }
+    // } else {
+    //   return {
+    //     msg: "email is not matched",
+    //     isValid: false,
+    //   };
+    // }
   };
   return (
     <div className="login-form">
@@ -66,6 +61,8 @@ const FormContainer = () => {
             value={password}
             handleChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
+                    <h1>{password}</h1>
+
           {password.length >= 1 && (
             <Form.ControlIcon>
               <button
@@ -109,6 +106,7 @@ const FormContainer = () => {
                       ></path>{" "}
                     </g>
                   </svg>
+                  
                 ) : (
                   <svg
                     viewBox="0 0 24 24"
