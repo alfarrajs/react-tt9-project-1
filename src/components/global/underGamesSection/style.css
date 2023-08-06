@@ -1,0 +1,87 @@
+.cards-two-container {
+    position: relative;
+    top: 7rem;
+    display: flex;
+}
+.ffrow{
+    position: relative;
+    top:-8rem;
+}
+body{
+    overflow: hidden;
+}
+
+.innerRow {
+    position: relative;
+    width: 378px;
+}
+
+.innerInner {
+    background: #515151;
+    margin-top:.8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 900px;
+    position: relative;
+    top:-4rem;
+}
+.innerInner h6 {
+    color: #D8D8D8;
+    font-family: Gilroy;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.innerInner img {
+    border-radius: 50%;
+    position: relative;
+    right: 1rem;
+}
+
+.innerRowImage{
+    width:70px;
+}
+
+
+.card-01{
+background-image: url(../../../../public/assets/images/uncharted/un.png);
+width: 678px;
+height: 358px;
+   position: relative;
+   right: -9%;
+   top:-2rem;
+}
+
+
+.card-01{
+    position: relative;
+   }
+   .card-01 img:nth-child(2){
+    position: absolute;
+
+    background-color: transparent;
+    width:50rem;
+flex-shrink: 0;
+    right:-16rem;
+    z-index: -1;
+    top:-27rem;
+
+   }
+   .card-01 img{
+    position: absolute;
+     right:-1rem;
+     top:-2rem;
+     width:10rem;
+
+   }
+
+   .card-02{
+    background-image: url(../../../../public/assets/images/FRIENDS.png);
+    width:400px;
+    height:400px;
+    background-repeat: no-repeat;
+    position: relative;
+    right:-18rem;
+}

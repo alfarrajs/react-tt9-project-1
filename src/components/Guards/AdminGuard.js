@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useDeferredValue } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
 const AdminGuard = ({ children  }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,3 +15,15 @@ const AdminGuard = ({ children  }) => {
 };
 
 export default AdminGuard;
+
+
+
+//   
+  
+
+
+// if(result[input])
+
+
+
+// 

@@ -9,21 +9,19 @@ const FormContainer = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
+  const [isLoading, setIsLoading] = useState(false); // New state for loading
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
+      setIsLoading(true); // set the loading state to true
       const response = await axios.post('https://react-tt-api.onrender.com/api/users/login', {
         email: email,
         password: password
       });
   
-      // Assuming the API returns a success message or token upon successful login
-      const { token } = response.data;
-  
-      // Perform actions based on the response
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -37,7 +35,6 @@ const FormContainer = () => {
       }, 1100);
   
     } catch (error) {
-      // Handle login error
       Swal.fire({
         position: 'center',
         icon: 'error',
@@ -46,6 +43,9 @@ const FormContainer = () => {
         showConfirmButton: false,
         timer: 1500
       });
+    }
+    finally{
+      setIsLoading(false);
     }
   };
 
@@ -178,7 +178,9 @@ const FormContainer = () => {
             </Form.ControlIcon>
           )}
         </Form.Group>
-        <Form.Submit handleSubmit={handleSubmit}>Login</Form.Submit>
+        <Form.Submit handleSubmit={handleSubmit}>
+        {isLoading ? 'Loading...' : 'Login'}   
+        </Form.Submit>
       </Form>
     </div>
   );

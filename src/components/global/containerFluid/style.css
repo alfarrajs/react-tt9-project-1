@@ -1,0 +1,14 @@
+.container-fl{
+    margin-left: 10rem;
+    color: #fff;
+    font-family: sans-serif;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+}
+.container-fl h1:nth-child(1) {
+    position: relative;
+    top:.3rem;
+    left:1.2rem;
+}

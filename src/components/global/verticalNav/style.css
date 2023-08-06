@@ -1,0 +1,71 @@
+.verticalNavbar{
+    height: 100vh;
+    position: absolute;
+    top:0;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    background-color: #222;
+}
+
+
+.verticalNavbar::after {
+    content: "";
+    position: absolute;
+    height: calc(100% - 100px); /* Subtracting the margin values from the height */
+    width: 0.5rem;
+    border-radius: 38px;
+    background: #222;
+    box-shadow: 2px 4px 4px 0px rgba(255, 255, 255, 0.57) inset;
+    right: -2rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.moon-light{
+display: flex;
+justify-content: space-between;
+align-items: center !important;
+flex-direction: column;
+padding: 17px 9px;
+gap: 10px;
+background-color: #515151;
+border-radius:60px;
+ position: relative;
+ bottom:2.5rem;
+ left: .5rem;
+ cursor: pointer;
+ height:8rem;
+}
+.Game-two{
+    position: relative;
+    left:.5rem;
+    top:0.5rem;
+
+}
+.icons img{
+    margin-top:3.2rem;
+    cursor: pointer;
+    position: relative;
+    left:.5rem;
+    top:0.5rem;
+}
+.icons img:nth-child(3){
+    position: relative;
+    right:-.3rem;
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.imger{
+    width:35px;
+    height:35px;
+}

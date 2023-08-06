@@ -1,7 +1,7 @@
 import Login from './components/pages/login/Login'
 import Register from './components/pages/register/Register'
 import { Route, Routes } from "react-router-dom";
-import Test  from  "./components/pages/home";
+import HomePage from './components/pages/HomePage/index';
 function App() {
   return (
     <div className="App">
@@ -9,6 +9,8 @@ function App() {
      <Route path="/" exact element={<Login/>}/>
      <Route path="/login"  element={<Login/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
+      <Route path="/home" element={<HomePage/>}></Route>
+
      </Routes>
     </div>
   )

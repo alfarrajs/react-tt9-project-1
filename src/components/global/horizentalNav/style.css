@@ -1,0 +1,46 @@
+.avatar{
+border-radius: 40px;
+border: 2px solid #000;
+width: 110px;
+height: 110px;
+}
+.one{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    right:1rem;
+    top:.6rem;
+    
+
+}
+.innerLogo{
+    background-color: transparent !important;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    align-items: center;
+
+}
+.content{
+    margin-right:10px;
+    color:#fff;
+}
+
+.content p {
+    text-align:right;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+    
+    .content h3{
+    text-align: right;
+    font-family: Inter;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
