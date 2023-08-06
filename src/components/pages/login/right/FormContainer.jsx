@@ -1,46 +1,55 @@
 import React, { useState } from "react";
 import Form from "../../../global/forms/Form";
 import Swal from "sweetalert2";
+import axios from 'axios';
+import {useNavigate} from "react-router-dom";
+
 const FormContainer = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let items = {email,password};
-    let result = fetch("https://react-tt-api.onrender.com/api/")
-    // const { msg, isValid } = validateLogin();
-    // Swal.fire({
-    //   position: "center",
-    //   icon: isValid ? "success" : "error",
-    //   title: msg,
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
-    
+  
+    try {
+      const response = await axios.post('https://react-tt-api.onrender.com/api/users/login', {
+        email: email,
+        password: password
+      });
+  
+      // Assuming the API returns a success message or token upon successful login
+      const { token } = response.data;
+  
+      // Perform actions based on the response
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Logged in successfully!',
+        showConfirmButton: false,
+        timer: 900
+      });
+
+      setTimeout(() => {
+        navigate("/test");
+      }, 1100);
+  
+    } catch (error) {
+      // Handle login error
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Login failed',
+        text: 'Invalid email or password',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
   };
-  const validateLogin = () => {
-    // const user = users.find((user) => user.email === email);
-    // if (user) {
-    //   if (user.password == password) {
-    //     return {
-    //       msg: "login successful",
-    //       isValid: true,
-    //     };
-    //   } else {
-    //     return {
-    //       msg: "password is not correct",
-    //       isValid: false,
-    //     };
-    //   }
-    // } else {
-    //   return {
-    //     msg: "email is not matched",
-    //     isValid: false,
-    //   };
-    // }
-  };
+
+
   return (
     <div className="login-form">
       <Form>
@@ -61,7 +70,6 @@ const FormContainer = () => {
             value={password}
             handleChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
-                    <h1>{password}</h1>
 
           {password.length >= 1 && (
             <Form.ControlIcon>

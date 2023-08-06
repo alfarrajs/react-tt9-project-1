@@ -5,9 +5,9 @@ import Swal from 'sweetalert2'
 import axios from "axios";
 
 import { SpinnerLoader } from "./style";
-
 import {useNavigate} from "react-router-dom";
 const FromContainer = () => {
+  
   const navigate = useNavigate();
   const [checkValidations, setCheckValidations] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -93,9 +93,9 @@ const FromContainer = () => {
         email: controls.email.value,
         password: controls.password.value,
       };
-      const publicUrl = process.env.REACT_APP_API_URL;
+      
       try {
-        await axios.post(`${publicUrl}/users/signup/`, signupData);
+        await axios.post(`https://react-tt-api.onrender.com/api/users/signup/`, signupData);
         Swal.fire(
           'Registered Successfully!',
           'You clicked the button!',
@@ -103,8 +103,9 @@ const FromContainer = () => {
         );
         setTimeout(() => {
           navigate("/login");
-        }, 3000);
+        }, 1500);
       } catch (error) {
+        console.log(error)
         Swal.fire({
           icon: 'error',
           title: 'User already exists',

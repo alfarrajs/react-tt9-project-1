@@ -10,10 +10,12 @@ export const StyledInfo = styled.p`
     line-height: normal;
     text-align: center;
   }
+
   button{
     color: var(--blue-color) !important;
     &:hover{
       text-decoration: underline;
     }
   }
+  
 `
