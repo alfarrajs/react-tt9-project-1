@@ -31,7 +31,7 @@ const FormContainer = () => {
       });
 
       setTimeout(() => {
-        navigate("/test");
+        navigate("/home");
       }, 1100);
   
     } catch (error) {

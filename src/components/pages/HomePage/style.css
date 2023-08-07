@@ -1,0 +1,44 @@
+:root {
+    --text-color-in-dark-mode: #D8D8D8;
+    --text-color-in-light-mode: #000;
+    --card-color-in-dark-mode:#515151;
+    --card-color-in-light-mode:#FBFBFB;
+    --switcher-color-in-light-mode:#C1C1C1;
+    --switcher-color-in-dark-mode:#515151;
+}
+*{
+    font-family:Arial, Helvetica, sans-serif !important;
+}
+body{
+    background-color: #fff;
+}
+
+.dark{
+    background-color:#222;
+}
+
+.light{
+    background-color: #fff;
+}
+/* text */
+.text-dark{
+    color:var(--text-color-in-dark-mode) !important;
+}
+.text-light{
+    color:var(--text-color-in-light-mode)!important;
+}
+/* switcher */
+.switch-dark{
+    background-color: var(--switcher-color-in-dark-mode);
+}
+.switch-light{
+    background-color:var(--switcher-color-in-light-mode);
+}
+/* cards */
+.card-dark{
+    background: var(--card-color-in-dark-mode);
+}
+.card-light{
+    background:var(--card-color-in-light-mode);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+/* end */

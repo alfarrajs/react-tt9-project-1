@@ -32,7 +32,7 @@ align-items: center !important;
 flex-direction: column;
 padding: 17px 9px;
 gap: 10px;
-background-color: #515151;
+background-color:var(--switcher-color-in-dark-node);
 border-radius:60px;
  position: relative;
  bottom:2.5rem;

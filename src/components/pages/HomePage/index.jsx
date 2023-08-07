@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import Vnav from "../../global/verticalNav";
 import Hnav from "../../global/horizentalNav";
 import MainSection from "../../global/containerFluid";
-export default function index() {
+import "./style.css";
+import { ThemeContext } from "../../../App";
+
+export default function Index() {
+  const themeContext = useContext(ThemeContext);
   return (
-    <>
-    <Hnav/>
-    <Vnav/>
-    <MainSection/>
-    </>
-    
-    )
+    <React.Fragment>
+      <div className={`${themeContext.theme}`}>
+        <Hnav />
+        <Vnav />
+        <MainSection />
+      </div>
+    </React.Fragment>
+  );
 }

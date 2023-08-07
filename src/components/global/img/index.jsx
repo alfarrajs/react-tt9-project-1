@@ -1,8 +1,8 @@
 import React from 'react'
 
- const index = ({src,className}) => {
+ const index = ({src,className,onClick}) => {
   return (
-    <img src={src} className={className} alt="" />
+    <img onClick={onClick} src={src} className={className} alt="" />
   )
 }
 export default index;

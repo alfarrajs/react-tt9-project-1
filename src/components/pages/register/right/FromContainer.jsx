@@ -96,11 +96,30 @@ const FromContainer = () => {
       
       try {
         await axios.post(`https://react-tt-api.onrender.com/api/users/signup/`, signupData);
-        Swal.fire(
-          'Registered Successfully!',
-          'You clicked the button!',
-          'success'
-        );
+        let timerInterval;
+        Swal.fire({
+          icon : "success",
+          title: 'Registered Successfully',
+          html: 'I will close in <b></b> milliseconds.',
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+
         setTimeout(() => {
           navigate("/login");
         }, 1500);
