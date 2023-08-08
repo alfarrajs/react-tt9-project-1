@@ -1,7 +1,7 @@
 import React , {useContext} from 'react'
 import Img from "../img";
 import "./style.css";
-import { ThemeContext } from "../../../App";
+import { ThemeContext } from "../../hooks/useTheme";
 
 export default function Index() {
    const themeColor = useContext(ThemeContext);

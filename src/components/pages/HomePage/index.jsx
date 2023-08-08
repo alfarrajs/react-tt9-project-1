@@ -3,7 +3,7 @@ import Vnav from "../../global/verticalNav";
 import Hnav from "../../global/horizentalNav";
 import MainSection from "../../global/containerFluid";
 import "./style.css";
-import { ThemeContext } from "../../../App";
+import { ThemeContext } from "../../hooks/useTheme";
 
 export default function Index() {
   const themeContext = useContext(ThemeContext);

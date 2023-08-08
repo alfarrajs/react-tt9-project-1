@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import Img from '../img';
 import "./style.css";
-import { ThemeContext } from "../../../App";
+import { ThemeContext } from "../../hooks/useTheme";
 export default function Index() {
   const themeColor = useContext(ThemeContext);
 
@@ -38,10 +38,13 @@ export default function Index() {
         </div>
 
         <div className="cards card-01">
-          <Img src="../../../assets/images/uncharted/png-clipart-disgaea-3-playstation-3-playstation-4-xbox-360-trophy-golden-cup-game-medal 1.png" alt="" />
-          <Img src="../../../assets/images/uncharted/Ellipse 1.png" alt="" />
+          <Img className={"ll"} src="../../../assets/images/uncharted/png-clipart-disgaea-3-playstation-3-playstation-4-xbox-360-trophy-golden-cup-game-medal 1.png" alt="" />
+          <Img  className={"underLogo"} src="../../../assets/images/uncharted/t.png" alt="" />
+           <div className="con">
+           <p>assassin's creed odyssey</p>
+           <p>last played: 34 hours ago</p>
+           </div>
         </div>
-
         <div className="cards card-02"></div>
       </section>
     </div>

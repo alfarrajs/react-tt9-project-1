@@ -1,30 +1,28 @@
-import { createContext, useContext, useState } from 'react';
+import { Route, Routes } from "react-router-dom";
+import HomePage from './components/pages/HomePage';
+import { useTheme, ThemeContext } from "./components/hooks/useTheme";
 import Login from './components/pages/login/Login'
 import Register from './components/pages/register/Register'
-import { Route, Routes } from "react-router-dom";
-import HomePage from './components/pages/HomePage/index';
-
-
-export const ThemeContext = createContext(null);
+import AuthProvider from "./components/contexts/AuthContext";
 
 function App() {
-  const [theme,setTheme] = useState("light");
+  const theme = useTheme();
+
   return (
-    <div className="App">
-      <ThemeContext.Provider value={{theme,setTheme}}>
-      <Routes>
-      <Route path="/" exact element={<Login/>}/>
-      <Route path="/login"  element={<Login/>}></Route>
-      <Route path="/register" element={<Register/>}></Route>
-      <Route path="/home" element={<HomePage/>}></Route>
-      </Routes>
-      </ThemeContext.Provider>
-    
-    </div>
-  )
+    <AuthProvider>
+      <div className="App">
+        <ThemeContext.Provider value={theme}>
+          <Routes>
+            <Route path="/" exact element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<HomePage />} />
+          </Routes>
+        </ThemeContext.Provider>
+      </div>
+    </AuthProvider>
+  );
 }
 
+
 export default App;
-
-
-

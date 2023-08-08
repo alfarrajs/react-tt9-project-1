@@ -29,6 +29,8 @@
     position: relative;
     overflow: hidden;
     background-position: center;
+    overflow: hidden;
+
     
 }
 .card-1 img:nth-child(1){
@@ -83,6 +85,7 @@ width: 426px;
     background-repeat: no-repeat;
     position: relative;
     transition: .4s ease-in-out all;
+    overflow: hidden;
 }
 
 
@@ -99,8 +102,7 @@ line-height: normal;
      }
 
 .card-2:hover img {
-         transform: scale(1.2);
-         transition: .4s ease-in-out all;
+    transition: .4s ease-in all;
 }
 
 .card-3{
@@ -110,6 +112,8 @@ line-height: normal;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
+
 }
 .card-3 img{
     position: absolute;

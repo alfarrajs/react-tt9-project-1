@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Form from "../../../global/forms/Form";
-import Swal from "sweetalert2";
-import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import {useAuthContext} from "../../../contexts/AuthContext";
 
 const FormContainer = () => {
   const navigate = useNavigate();
@@ -10,45 +9,21 @@ const FormContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false); // New state for loading
+  const {login ,loading} = useAuthContext();
+  const [formData, setFormData] = useState({
+       email :"",
+       password:"",
+  });
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    try {
-      setIsLoading(true); // set the loading state to true
-      const response = await axios.post('https://react-tt-api.onrender.com/api/users/login', {
-        email: email,
-        password: password
-      });
-  
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Logged in successfully!',
-        showConfirmButton: false,
-        timer: 900
-      });
-
-      setTimeout(() => {
-        navigate("/home");
-      }, 1100);
-  
-    } catch (error) {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Login failed',
-        text: 'Invalid email or password',
-        showConfirmButton: false,
-        timer: 1500
-      });
-    }
-    finally{
-      setIsLoading(false);
-    }
+    login(formData);
   };
 
+
+  const handleChangeInput = ({ target: { value, name } }) =>
+   setFormData((prev) => ({ ...prev, [name]: value }));
 
   return (
     <div className="login-form">
@@ -57,18 +32,20 @@ const FormContainer = () => {
           <Form.Label>Your email</Form.Label>
           <Form.Control
             as="text"
+            name={"email"}
             placeholder={"Write your email"}
-            value={email}
-            handleChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            handleChange={handleChangeInput}
           ></Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label>Enter your password</Form.Label>
           <Form.Control
             as={showPassword ? "text" : "password"}
+            name={"password"}
             placeholder={"•••••••••"}
-            value={password}
-            handleChange={(e) => setPassword(e.target.value)}
+            handleChange={handleChangeInput}
+            value = {formData.password}
           ></Form.Control>
 
           {password.length >= 1 && (
@@ -179,7 +156,7 @@ const FormContainer = () => {
           )}
         </Form.Group>
         <Form.Submit handleSubmit={handleSubmit}>
-        {isLoading ? 'Loading...' : 'Login'}   
+        {loading ? 'Loading...' : 'Login'}   
         </Form.Submit>
       </Form>
     </div>

@@ -13,18 +13,17 @@ body{
 }
 
 
-.verticalNavbar::after {
+.verticalNavbar__afterElement {
     content: "";
     position: absolute;
-    height: calc(100% - 100px); /* Subtracting the margin values from the height */
+    height: calc(100% - 100px);
     width: 0.5rem;
     border-radius: 38px;
     background: #222;
-    box-shadow: 2px 4px 4px 0px rgba(255, 255, 255, 0.57) inset;
     right: -2rem;
     margin-top: 50px;
     margin-bottom: 50px;
-}
+  }
 .moon-light{
 display: flex;
 justify-content: space-between;

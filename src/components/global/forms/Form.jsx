@@ -21,9 +21,10 @@ Form.Validation = ({ msg, children, textColor }) => {
     </Validation>
   );
 };
-Form.Control = ({ as, value, handleChange, placeholder, variant }) => {
+Form.Control = ({ as, value, handleChange, placeholder, variant,name }) => {
   return (
     <Control
+      name = {name}
       type={as}
       value={value}
       onChange={handleChange}
