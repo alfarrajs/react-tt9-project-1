@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Form from "../../../global/forms/Form";
 import Password from "./Password";
 import Swal from 'sweetalert2'
 import axios from "axios";
-
 import { SpinnerLoader } from "./style";
 import {useNavigate} from "react-router-dom";
+import { ROLES } from "../../../constants";
 const FromContainer = () => {
+
+
+
+    // no user or admin should enter here
+
+    useEffect(() => {
+      const role = localStorage.getItem("role");
+      if (role === ROLES.ADMIN || role === ROLES.USER) {
+        navigate("/home");
+      }
+  
+    });
+  
+    // end message
   
   const navigate = useNavigate();
   const [checkValidations, setCheckValidations] = useState(false);
@@ -116,7 +130,6 @@ const FromContainer = () => {
         }).then((result) => {
           /* Read more about handling dismissals below */
           if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
           }
         })
 

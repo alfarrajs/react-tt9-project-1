@@ -68,3 +68,12 @@ border-radius:60px;
     width:35px;
     height:35px;
 }
+.logout_btn{
+    color:#ddd !important;
+    background-color: rgb(252, 252, 252);
+    padding:10px;
+    position:relative;
+    border-radius:40%;
+    font-size: large!important ;
+    left:.5rem;
+}

@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Form from "../../../global/forms/Form";
 import {useNavigate} from "react-router-dom";
 import {useAuthContext} from "../../../contexts/AuthContext";
+import { ROLES } from "../../../constants";
 
 const FormContainer = () => {
+
+
+
+
+
+
+  // no user or admin should enter here
+
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role == ROLES.ADMIN || role == ROLES.USER) {
+      navigate("/home");
+    }
+
+  });
+
+  // end message
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -14,13 +32,22 @@ const FormContainer = () => {
        email :"",
        password:"",
   });
+  const [error, setError] = useState(null); // New state for error
+
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
-  };
+    setIsLoading(true); // Set isLoading to true before making the request
 
+    try {
+      await login(formData);
+      setIsLoading(false); 
+    } catch (error) {
+      setIsLoading(false);
+      alert('you have entered a wrong password or email !');
+    }
+  };
 
   const handleChangeInput = ({ target: { value, name } }) =>
    setFormData((prev) => ({ ...prev, [name]: value }));
@@ -156,7 +183,8 @@ const FormContainer = () => {
           )}
         </Form.Group>
         <Form.Submit handleSubmit={handleSubmit}>
-        {loading ? 'Loading...' : 'Login'}   
+        
+        {isLoading ? 'Loading...' : 'Login'}  
         </Form.Submit>
       </Form>
     </div>
