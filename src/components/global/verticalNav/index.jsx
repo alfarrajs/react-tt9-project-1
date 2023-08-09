@@ -48,7 +48,7 @@ export default function Index() {
 
         <div className="icons">
           {localStorage.getItem("role") === ROLES.ADMIN && (
-            <Img src="../../../assets/images/Setting-two (设置).png" />
+            <Link to="/admin"><Img src="../../../assets/images/Setting-two (设置).png" /></Link>
           )}
           {localStorage.getItem("role")  === ROLES.USER && (
             <>

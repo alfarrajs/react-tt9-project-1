@@ -5,6 +5,7 @@ import Login from './components/pages/login/Login'
 import Register from './components/pages/register/Register'
 import AuthProvider from "./components/contexts/AuthContext";
 import ProfilePage from "./components/pages/Profile";
+import Admin from "./components/pages/AdminPage";
 function App() {
   const theme = useTheme();
 
@@ -18,7 +19,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/profile" element={<ProfilePage />} />
-
+            <Route path="/admin" element={<Admin/>} />
             <Route path="*" element={"Page not found"}/>
           </Routes>
         </ThemeContext.Provider>

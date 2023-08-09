@@ -18,7 +18,7 @@ export default function Index() {
     if (!role || role === ROLES.GUEST) {
       navigate("/login");
       setTimeout(()=>{
-        alert("Hey stupid Guest sign in before")
+        alert("HeyGuest sign in before")
 
       },1000)
     }

@@ -23,6 +23,7 @@ const reduce = (state,action)=>{
             const token = action.payload?.token || state?.token;
             const isAdmin = action.payload?.isAdmin || false; 
             const role = isAdmin ? ROLES.ADMIN : ROLES.USER;
+
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);
           
@@ -65,7 +66,11 @@ const useAuth = ()=>{
         try {
           const { data } = await axios.post(AUTH_API + AUTH_API_PATHS.LOGIN, body);
           let username = data.name;
+          let id= data._id;
+          console.log(id);
           localStorage.setItem("name",username);
+          localStorage.setItem("id",id);
+
           navigate("/home")
           dispatch({ type: AUTH_ACTION.LOGIN, payload: data });
         } catch (error) {
